@@ -15,7 +15,7 @@
             </div>
             <div class="card-body">
                 <!-- Form Thêm mới thông tin môn học -->
-                <form action="" method="POST">
+                <form action="{{route('nqtMonHoc.nqtNewSubmitmh')}}" method="POST">
                     @csrf
 
                     <!-- Mã môn học -->
@@ -28,14 +28,14 @@
                     <!-- Tên môn học -->
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="nqtTenMH">Tên môn học</span>
-                        <input type="text" class="form-control" aria-describedby="TenKH"
-                               name="TenKH" value="{{ old('TenKH') }}">
+                        <input type="text" class="form-control" aria-describedby="nqtTenMH"
+                               name="nqtTenMH" value="{{ old('nqtTenMH') }}">
                     </div>
                     <!-- Số tiết -->
                     <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text" id="TenKH">Tên khoa</span>
-                        <input type="text" class="form-control" aria-describedby="TenKH"
-                               name="TenKH" value="{{ old('TenKH') }}">
+                        <span class="input-group-text" id="nqtSoTiet">Số tiết</span>
+                        <input type="number" class="form-control" aria-describedby="nqtSoTiet"
+                               name="nqtSoTiet" value="{{ old('nqtSoTiet') }}">
                     </div>
 
                     <!-- Thêm mới -->

@@ -48,7 +48,7 @@
                                     <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
                                     <a href="/monhoc/delete/{{ $item->mamh }}" class="btn btn-danger"
-                                       onclick="return confirm('Bạn muốn xóa không?');"><i class="fa-solid fa-trash"></i>
+                                       onclick="return confirm('Bạn muốn xóa môn học: {{ $item->mamh }} không?');"><i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>

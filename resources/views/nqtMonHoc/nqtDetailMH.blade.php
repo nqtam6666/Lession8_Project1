@@ -17,15 +17,15 @@
             <div class="card-body">
                 <p class="card-text">
                     <b>Mã môn học:</b>
-                    {{$khoa->mamh}}
+                    {{$monhoc->mamh}}
                 </p>
                 <p>
                     <b>Tên môn học:</b>
-                    {{$khoa->tenmh}}
+                    {{$monhoc->tenmh}}
                 </p>
                 <p>
                     <b>Số tiết:</b>
-                    {{$khoa->sotiet}}
+                    {{$monhoc->sotiet}}
                 </p>
             </div>
             <div class="card-footer">

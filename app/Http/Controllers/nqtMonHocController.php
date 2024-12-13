@@ -32,27 +32,36 @@ class nqtMonHocController extends Controller
         DB::update("UPDATE nqtmh SET tenmh=?, sotiet=? where mamh =?", [$tenmh, $sotiet,$mamh]);
         return redirect('/monhocs');
     }
-    public function nqtNew()
+    public function nqtNewmh()
     {
         return view('nqtMonHoc.nqtCreate');
     }
-    public function nqtNewSubmit(request $request)
+    public function nqtNewSubmitmh(request $request)
     {
         $validate = $request->validate([
-            "makh" => "required|min:1|max:5",
-            "tenkh" => "required|string"
+            "nqtMaMH" => "required|min:1|max:5",
+            "nqtTenMH" => "required|string",
+            "nqtSoTiet"=> "required|numeric"
         ],
         [
-            'makh.required'=>'Vui lòng nhập mã khoa',
-            'makh.min'=>'Nhập min 1 kí tự',
-            'makh.max'=>'Nhập max 5 kí tự',
-            'tenkh.required'=>'Vui lòng nhập tên khoa',
-            'tenkh.string' => 'Tên khoa phải là một chuỗi văn bản.'
+            'nqtMaMH.required'=>'Vui lòng nhập mã môn học',
+            'nqtMaMH.min'=>'Nhập min 1 kí tự',
+            'nqtMaMH.max'=>'Nhập max 5 kí tự',
+            'nqtTenMH.required'=>'Vui lòng nhập tên môn học',
+            'nqtTenMH.string' => 'Tên môn học phải là một chuỗi văn bản.',
+            'nqtSoTiet.required' => 'Vui lòng nhập số tiết',
+            'nqtSoTiet.numeric' => 'Số tiết là số'
             
         ]);
-        $makh = $request -> input('makh');
-        $tenkh = $request -> input('tenkh');
-        $khoa = DB::select('INSERT INTO `nqtkhoa` values(?, ?)',[$makh, $tenkh]);
-        return redirect('/khoas');
+        $mamh = $request -> input('nqtMaMH');
+        $tenmh = $request -> input('nqtTenMH');
+        $sotiet = $request -> input('nqtSoTiet');
+        $khoa = DB::select('INSERT INTO `nqtmh` values(?, ?, ?)',[$mamh, $tenmh, $sotiet]);
+        return redirect('/monhocs');
     }
+    public function delete($nqtmamh)
+    {
+        $khoa = DB::delete('delete from nqtmh where mamh =?',[$nqtmamh]);
+        return redirect('/monhocs');    
+    }   
 }
